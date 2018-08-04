@@ -84,6 +84,7 @@ class IndexController(
         val article = articleRepository.findByUrl(path)
         if (article != null) {
             metadata.title = article.title
+            metadata.description = article.summary
             model.addAttribute("title", article.title)
             model.addAttribute("content", Markdown.render(article.content))
             return "article"
