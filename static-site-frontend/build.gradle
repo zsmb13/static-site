@@ -27,6 +27,11 @@ repositories {
 }
 
 
+bootJar {
+    destinationDir = file("${projectDir}/out")
+    archiveName = "static-site-frontend.jar"
+}
+
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')

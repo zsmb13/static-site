@@ -1,2 +1,4 @@
 rootProject.name = 'static-site'
+
+include 'static-site-backend'
 include 'static-site-frontend'

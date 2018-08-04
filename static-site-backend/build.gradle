@@ -1,0 +1,55 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: "kotlin-noarg"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+group = 'co.zsmb'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+noArg {
+    annotation("kotlinx.serialization.Serializable")
+    annotation("org.springframework.data.mongodb.core.mapping.Document")
+}
+
+bootJar {
+    destinationDir = file("${projectDir}/out")
+    archiveName = "static-site-backend.jar"
+}
+
+dependencies {
+    // Spring basics
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb-reactive"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+
+    // Spring security
+    implementation "org.springframework.boot:spring-boot-starter-security"
+    testImplementation "org.springframework.security:spring-security-test"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    // Serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+
+    // Markdown
+    implementation "com.atlassian.commonmark:commonmark:0.11.0"
+    implementation "com.atlassian.commonmark:commonmark-ext-gfm-tables:0.11.0"
+    implementation "com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:0.11.0"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+
+    // Testing
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
+    testImplementation "org.junit.jupiter:junit-jupiter-api"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine"
+}

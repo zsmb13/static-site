@@ -1,0 +1,45 @@
+version: '3.2'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    expose:
+    - "27017"
+    volumes:
+    - /mongo_data:/data/db
+
+  backend:
+    image: static_site_backend
+    build:
+      context: static-site-backend
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: out/static-site-backend.jar
+    restart: always
+    ports:
+    - "8080:8080"
+    - "8443:8443"
+    environment:
+    - SPRING_PROFILES_ACTIVE=prod
+    - SSL_PASS=${SSL_PASS}
+    - SSL_ALIAS=${SSL_ALIAS}
+    volumes:
+    - /etc/letsencrypt:/data/ssl
+
+  frontend:
+    image: static_site_frontend
+    build:
+      context: static-site-frontend
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: out/static-site-frontend.jar
+    restart: always
+    ports:
+    - "80:80"
+    - "443:443"
+    environment:
+    - SPRING_PROFILES_ACTIVE=prod
+    - SSL_PASS=${SSL_PASS}
+    - SSL_ALIAS=${SSL_ALIAS}
+    volumes:
+    - /etc/letsencrypt:/data/ssl
