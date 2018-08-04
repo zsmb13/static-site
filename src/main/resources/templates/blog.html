@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/template :: meta"></div>
+    <div th:replace="fragments/template :: scripts"></div>
+</head>
+<body>
+<div class="container justify-content-center" style="min-width: 0; max-width: 50em;">
+    <div class="mx-md-5 mx-sm-3 mx-auto my-sm-4 my-2">
+        <div th:replace="fragments/template :: header"></div>
+
+        <div id="main-content">
+            <div>
+                <th:block th:each="article : ${articles}">
+                    <div class="article-summary">
+                        <a th:href="${article.url}">
+                            <h2 th:utext="${article.title}">Article title</h2>
+                        </a>
+                        <div th:utext="${article.summary}"></div>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

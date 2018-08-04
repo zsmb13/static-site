@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/template :: meta"></div>
+    <div th:replace="fragments/template :: scripts"></div>
+</head>
+<body>
+<div class="container justify-content-center" style="min-width: 0; max-width: 50em;">
+    <div class="mx-md-5 mx-sm-3 mx-auto my-sm-4 my-2">
+        <div th:replace="fragments/template :: header"></div>
+
+        <div id="main-content">
+            <h2>Oops.</h2>
+            <p>You seem lost.</p>
+            <p>Please use the menu above to find your way back.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

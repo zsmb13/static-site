@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:fragment="meta" xmlns:th="http://www.thymeleaf.org" th:object="${metadata}">
+        <meta charset="UTF-8">
+        <meta name="description" th:attr="content=*{description}">
+        <meta name="keywords" th:content="*{keywords}">
+        <meta name="author" th:content="*{author}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title th:text="*{title}">zsmb.co</title>
+
+        <!-- facebook open graph tags -->
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" th:attr="content='zsmb.co' + ${#httpServletRequest.requestURI}"/>
+        <meta property="og:title" th:attr="content=*{title}"/>
+        <meta property="og:description" th:attr="content=*{description}"/>
+
+        <!-- twitter card tags additive with the og: tags -->
+        <meta name="twitter:domain" value="zsmb.co"/>
+        <meta name="twitter:title" th:attr="value=*{title}"/>
+        <meta name="twitter:description" th:attr="value=*{description}"/>
+        <meta name="twitter:url" th:attr="value='zsmb.co' + ${#httpServletRequest.requestURI}"/>
+    </th:block>
+    <th:block th:fragment="scripts" xmlns:th="http://www.thymeleaf.org">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/css/site.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="/js/bootstrap.min.js"></script>
+
+        <!-- Code formatting -->
+        <link rel="stylesheet" href="/css/xcode.css"/>
+        <script src="/js/highlight.pack.js"></script>
+        <script src="https://unpkg.com/kotlin-playground@1" data-selector=".playground-marker"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </th:block>
+</head>
+<body>
+<div class="container justify-content-center" style="min-width: 0; max-width: 50em;">
+    <div class="mx-md-5 mx-sm-3 mx-auto my-sm-4 my-2">
+
+        <div th:fragment="header" xmlns:th="http://www.thymeleaf.org" class="test">
+            <h3 class="text-center">zsmb.co<span id="beta-tag">Beta2</span></h3>
+            <hr class="my-2"/>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Blog</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Projects</a>-->
+                <!--</li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/talks">Talks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
+            <hr class="my-2"/>
+        </div>
+
+        <div id="main-content">
+            <h1>Header</h1>
+            <p>Lorem ipsum dolor sit amet</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
