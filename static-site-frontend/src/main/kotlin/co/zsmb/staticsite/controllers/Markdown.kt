@@ -1,4 +1,4 @@
-package co.zsmb.staticsite
+package co.zsmb.staticsite.controllers
 
 import org.commonmark.Extension
 import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension

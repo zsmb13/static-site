@@ -1,4 +1,4 @@
-package co.zsmb.staticsite
+package co.zsmb.staticsite.controllers
 
 class Metadata {
 
