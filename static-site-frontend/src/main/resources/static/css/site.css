@@ -1,15 +1,16 @@
 html {
-    font-size: 125%
+    font-size: 110%
 }
 
 :not(pre) > code {
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
     color: #000;
-    background-color: #F3F3F3;
+    background-color: #eaedf0;
+    font-size: .9em;
     padding: 3px;
-    font-family: Monaco, Consolas, "Andale  Mono", "DejaVu Sans Mono", monospace;
+    font-family: Consolas, "Andale  Mono", "DejaVu Sans Mono", monospace;
 }
 
 pre {
@@ -21,6 +22,7 @@ pre {
 pre code {
     border-left: 3px solid #ccc;
     margin: 0 10px;
+    background: #f9f9f9;
 }
 
 blockquote {
@@ -58,9 +60,20 @@ p + pre {
 
 #beta-tag {
     position: absolute;
-    font-size: 0.45em;
-    transform: rotate(20deg) translateX(-0.5em);
-    color: #007bff;
+    font-size: 0.4em;
+    transform: rotate(20deg) translateX(-1em);
+
+    border-radius: 2em;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+
+    color: #0277BD;
+    transition: background .15s;
+    padding: .4em;
+}
+
+#beta-tag:hover {
+    background-color: hotpink;
 }
 
 h1, h2 {
@@ -79,6 +92,31 @@ p {
     line-height: 1.6;
 }
 
-#main-content {
-    margin-bottom: 2em;
+.container {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+a {
+    color: #0277BD;
+}
+
+a:hover {
+    color: #e18e07;
+}
+
+.nav-item {
+    border-radius: 2em;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    transition: background .15s;
+    font-size: 1em;
+}
+
+.nav-item:hover {
+    background-color: rgba(2, 119, 189, 0.21);
+}
+
+.nav-item a:hover {
+    color: #0277BD;
 }
