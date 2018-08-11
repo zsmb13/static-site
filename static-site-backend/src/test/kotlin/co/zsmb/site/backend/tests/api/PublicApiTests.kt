@@ -1,9 +1,6 @@
 package co.zsmb.site.backend.tests.api
 
-import co.zsmb.site.backend.data.Article
-import co.zsmb.site.backend.data.render
-import co.zsmb.site.backend.data.toDetail
-import co.zsmb.site.backend.data.toSummary
+import co.zsmb.site.backend.data.*
 import co.zsmb.site.backend.extensions.expectBodyAs
 import co.zsmb.site.backend.extensions.isEqualWith
 import co.zsmb.site.backend.setup.SpringTest
@@ -92,7 +89,7 @@ class PublicApiTests(@Autowired context: ApplicationContext) {
                 .uri("/public/custompages/${customPage.name}")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBodyAs<CustomPage>().isEqualWith(renderedPage)
+                .expectBodyAs<OldCommonCustomPage>().isEqualWith(renderedPage)
     }
 
     @Test

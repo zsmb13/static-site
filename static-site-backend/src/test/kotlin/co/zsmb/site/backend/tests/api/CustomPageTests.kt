@@ -1,6 +1,7 @@
 package co.zsmb.site.backend.tests.api
 
 import co.zsmb.site.backend.data.CustomPage
+import co.zsmb.site.backend.data.OldCommonCustomPage
 import co.zsmb.site.backend.data.render
 import co.zsmb.site.backend.extensions.expectBodyAs
 import co.zsmb.site.backend.extensions.isEqualWith
@@ -12,7 +13,6 @@ import org.springframework.context.ApplicationContext
 import org.springframework.http.MediaType
 import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.reactive.server.WebTestClient
-import co.zsmb.site.common.CustomPage as CommonCustomPage
 
 @SpringTest
 class CustomPageTests(@Autowired context: ApplicationContext) {
@@ -30,7 +30,7 @@ class CustomPageTests(@Autowired context: ApplicationContext) {
                 .exchange()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
                 .expectStatus().isCreated()
-                .expectBodyAs<CommonCustomPage>().isEqualWith(renderedPage)
+                .expectBodyAs<OldCommonCustomPage>().isEqualWith(renderedPage)
     }
 
     @Test
@@ -74,7 +74,7 @@ class CustomPageTests(@Autowired context: ApplicationContext) {
                 .syncBody(customPage)
                 .exchange()
                 .expectHeader().contentType(MediaType.APPLICATION_JSON_UTF8)
-                .expectBodyAs<CommonCustomPage>().isEqualWith(renderedPage)
+                .expectBodyAs<OldCommonCustomPage>().isEqualWith(renderedPage)
     }
 
 }
