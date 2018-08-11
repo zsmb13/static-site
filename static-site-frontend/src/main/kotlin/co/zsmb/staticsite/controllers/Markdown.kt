@@ -30,7 +30,6 @@ internal object Markdown {
                             if (cssClass != null
                                     && cssClass.contains("kotlin")
                                     && node.literal.contains("fun main(args: Array<String>)")) {
-                                println("Found the thing")
                                 attributes["class"] = "$cssClass playground-marker"
                             }
                         }
