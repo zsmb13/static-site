@@ -17,7 +17,12 @@ class SiteController(
     @GetMapping("/")
     fun index(request: HttpServletRequest, model: Model): String {
         model.addAttribute("metadata", Metadata())
-        model.addAttribute("articles", articleRepository.findAllByOrderByPublishDateDesc())
+
+        val currentTimeMs = System.currentTimeMillis()
+        val articles = articleRepository.findAllByOrderByPublishDateDesc()
+                .filter { it.publishDate.time <= currentTimeMs }
+        model.addAttribute("articles", articles)
+
         return "blog"
     }
 
