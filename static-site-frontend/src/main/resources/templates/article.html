@@ -10,7 +10,8 @@
         <div th:replace="fragments/template :: header"></div>
 
         <div id="main-content">
-            <h2 th:utext="${title}"></h2>
+            <h2 th:text="${title}"></h2>
+            <p th:text="${date}" class="article-detail-date">2018.06.15.</p>
             <div>
                 <div th:remove="tag" th:utext="${content}"></div>
             </div>

@@ -120,3 +120,18 @@ a:hover {
 .nav-item a:hover {
     color: #0277BD;
 }
+
+.article-detail-date {
+    margin-top: -1em;
+    font-size: .8em;
+    text-align: start;
+    font-weight: 600;
+    color: #0277BD;
+}
+
+.article-preview-date {
+    font-size: .8em;
+    text-align: end;
+    font-weight: 600;
+    color: #0277BD;
+}
