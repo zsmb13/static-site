@@ -17,6 +17,7 @@ internal fun BeanDefinitionDsl.routingBeans() {
             addCustomPageRoutes(ref())
             addAuthRoutes(ref())
             addAnalyticsRoutes(ref())
+            addFileRoutes(ref())
 
             addPublicRoutes(ref(), ref())
         }.addAnalyticsFilter(ref())
@@ -64,6 +65,12 @@ private fun RouterFunctionDsl.addAnalyticsRoutes(analyticsHandler: AnalyticsHand
         DELETE("/", analyticsHandler::removeAllEvents)
 
         GET("/grouped", analyticsHandler::getAllEventsGrouped)
+    }
+}
+
+private fun RouterFunctionDsl.addFileRoutes(fileHandler: FileHandler) {
+    "/files".nest {
+        POST("/", fileHandler::upload)
     }
 }
 
