@@ -2,6 +2,7 @@ package co.zsmb.staticsite.controllers
 
 import co.zsmb.staticsite.data.ArticleRepository
 import co.zsmb.staticsite.data.CustomPageRepository
+import co.zsmb.staticsite.util.formatForDisplay
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -40,6 +41,7 @@ class SiteController(
 
         model.addAttribute("title", article.title)
         model.addAttribute("content", Markdown.render(article.content))
+        model.addAttribute("date", article.publishDate.formatForDisplay())
 
         return "article"
     }
