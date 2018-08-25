@@ -70,7 +70,7 @@ private fun RouterFunctionDsl.addAnalyticsRoutes(analyticsHandler: AnalyticsHand
 
 private fun RouterFunctionDsl.addFileRoutes(fileHandler: FileHandler) {
     "/files".nest {
-        POST("/", fileHandler::upload)
+        POST("/{fileName}", fileHandler::upload)
     }
 }
 
