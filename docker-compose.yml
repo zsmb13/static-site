@@ -14,7 +14,7 @@ services:
     - PORT=8090
     - FOLDER=/files
     volumes:
-    - ./files:/files
+    - /files:/files
 
   backend:
     image: static_site_backend
@@ -33,7 +33,7 @@ services:
     - SSL_ALIAS=${SSL_ALIAS}
     volumes:
     - /etc/letsencrypt:/data/ssl
-    - ./files:/files
+    - /files:/files
 
   frontend:
     image: static_site_frontend
@@ -52,4 +52,4 @@ services:
     - SSL_ALIAS=${SSL_ALIAS}
     volumes:
     - /etc/letsencrypt:/data/ssl
-    - ./files:/files
+    - /files:/files
