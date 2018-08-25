@@ -135,3 +135,9 @@ a:hover {
     font-weight: 600;
     color: #0277BD;
 }
+
+#main-content img {
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+}
