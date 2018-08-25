@@ -6,6 +6,18 @@ services:
     expose:
     - "27017"
 
+  files:
+    image: halverneus/static-file-server
+    expose:
+    - "8090"
+    ports:
+    - "8090:8090"
+    environment:
+    - PORT=8090
+    - FOLDER=/files
+    volumes:
+    - ./files:/files
+
   backend:
     image: static_site_backend
     build:
@@ -18,6 +30,8 @@ services:
     - "8080:8080"
     environment:
     - SPRING_PROFILES_ACTIVE=dev
+    volumes:
+    - ./files:/files
 
   frontend:
     image: static_site_frontend
@@ -28,4 +42,6 @@ services:
         JAR_FILE: out/static-site-frontend.jar
     restart: always
     ports:
-    - "80:80"
+    - "80:8080"
+    volumes:
+    - ./files:/files
