@@ -34,6 +34,12 @@ class SiteController(
     @GetMapping("/files/{fileName}")
     fun getFile(@PathVariable("fileName") fileName: String, response: HttpServletResponse) {
         val file = File("/files", fileName)
+
+        if (!file.exists()) {
+            response.sendError(404, "File files/$fileName not found")
+            return
+        }
+
         val contentType = URLConnection.guessContentTypeFromName(file.name)
         response.contentType = contentType
         response.outputStream.use { output ->
