@@ -138,6 +138,7 @@ a:hover {
 
 #main-content img {
     max-width: 90%;
+    max-height: 360px;
     margin: 0 auto;
     display: block;
 }
